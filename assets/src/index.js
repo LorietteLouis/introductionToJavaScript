@@ -58,3 +58,35 @@ console.log(getRateGames(8,games))
 
 // 4. Ecrire une fonction qui prend en parametre une device et un tableau (games), et qui retourne un nouveau tableau de tous les jeux disponibles sur cette console
 
+const getDeviceUseForGame = (deviceStr, arr) =>{
+    let res3 = []
+
+    arr.forEach((el) => {
+        if(el.devices.includes(deviceStr)){
+            res3.push(el.title)
+        }
+    });
+
+    return res3
+}
+
+console.log(getDeviceUseForGame("Nintendo Switch",games))
+
+const getDeviceWithOneWord = (deviceStrWord, arr) =>{
+
+    let res4 = []
+
+    arr.forEach((game) => {
+       for (let i = 0; i < game.devices.length; i++) {
+        const element = game.devices[i];
+        if(element.includes(deviceStrWord)){
+            res4.push(game.title)
+            break;
+        }
+        
+       }
+    })
+
+    return res4;
+}   
+console.log(getDeviceWithOneWord('Xbox', games))
